@@ -1,8 +1,0 @@
-# Project exclude paths
-.gitignore
-/shelf/
-/workspace.xml
-/out/
-/.idea
-Pizza Time.iml
-/src/
