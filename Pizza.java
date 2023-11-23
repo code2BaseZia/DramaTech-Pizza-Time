@@ -8,7 +8,7 @@ public class Pizza {
     }
 
     public String toString() {
-        return topping2 == null ? String.format("A %s pizza(s).", topping1.name())
+        return topping2 == null ? String.format("%s pizza(s).", topping1.name())
                 : String.format("half %s and half %s pizza(s).", topping1.name(), topping2.name());
     }
 
