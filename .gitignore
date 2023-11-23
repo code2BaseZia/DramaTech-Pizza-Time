@@ -1,6 +1,6 @@
-src
+/shelf/
+/workspace.xml
+/out/
+/.idea
 .gitignore
 Pizza Time.iml
-/out/
-.idea
-/src/
