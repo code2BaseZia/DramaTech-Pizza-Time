@@ -8,9 +8,47 @@ public class Driver {
     private final static Topping[] toppings = Topping.values();
     private final static HashMap<Topping, Integer> count = new HashMap<>();
     private final static Scanner input = new Scanner(System.in);
+    private static short mode = 0;
     public static void main (String[] args) {
 
+
+        // Start of main driver code, asking user to select a mode
         System.out.println("Welcome to the DT Pizza Time program!");
+        System.out.println("Select by the slice (BS) or pizza order (PO) mode!");
+        boolean select = true;
+        String inputS = "";
+        while (select) {
+            try {
+                inputS = input.nextLine().strip();
+            } catch (Exception e) {
+                System.out.println("Please enter a valid mode input!");
+            }
+            switch (inputS) {
+                case ("BS"): select = false;
+                             mode = 1;
+                             break;
+                case ("PO"): select = false;
+                             mode = 2;
+                             break;
+                default: System.out.println("Please enter a valid mode input!");
+            }
+        }
+        // Based on mode selected, run either by the slice or pizza order
+        if (mode == 1) {
+            runPO();
+        } else {
+            runBS();
+        }
+    }
+
+
+    private static void runBS() {
+
+    }
+
+
+
+    private static void runPO() {
         printToppings();
         System.out.println("Please choose the toppings that were added and input the number of people who wanted that topping. Once finished, type -1");
         int inputI = 0;
@@ -23,10 +61,10 @@ public class Driver {
             }
             switch (inputI) {
                 case (0): printToppings();
-                          break;
+                    break;
                 case (-1):  computePizzaOrder();
-                            run = false;
-                            break;
+                    run = false;
+                    break;
                 default: try {
                     addToCount(inputI);
                     break;
@@ -105,9 +143,9 @@ public class Driver {
             count.put(prev, numPrev);
             prev = null;
         }
-        while (toppingSet.size() != 0) {
+        while (!toppingSet.isEmpty()) {
             removeEmpty(toppingSet);
-            if (toppingSet.size() == 0) {
+            if (toppingSet.isEmpty()) {
                 break;
             }
             Object[] toppingArr = toppingSet.toArray();
@@ -155,9 +193,9 @@ public class Driver {
             count.put(prev, numPrev);
             prev = null;
         }
-        while (toppingSet.size() != 0) {
+        while (!toppingSet.isEmpty()) {
             removeEmpty(toppingSet);
-            if (toppingSet.size() == 0) {
+            if (toppingSet.isEmpty()) {
                 break;
             }
             Object[] toppingArr = toppingSet.toArray();
