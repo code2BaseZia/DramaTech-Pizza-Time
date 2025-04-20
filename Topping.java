@@ -21,7 +21,8 @@ public enum Topping {
     PINEAPPLE(true, false),
     ROMA_TOMATOES(true, false),
     FRESH_SPINACH(true, false),
-    NO_CHEESE(true, true);
+    NO_CHEESE(true, true),
+    GLUTEN_FREE(true, true);
 
 
     private final boolean isVeg;
